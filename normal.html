@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pandemonium - Normal Mode</title>
+    <link rel="icon" href="https://static.wikitide.net/urbanshadewiki/thumb/8/8c/Hadal_Division_Logo.png/1200px-Hadal_Division_Logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <audio id="background-audio" autoplay loop>
+        <source src="https://codehs.com/uploads/e86534e420b21ea3c9e863d3dce43602">
+    </audio>
+    <div id="game-container">
+        <!-- <h3>Keep the circle in the white icon</h3> -->
+        <div id="blank-circle"></div>
+        <div id="bar"></div>
+    </div>
+    <div id="jumpscare-container"></div>
+    <script src="normal.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            var audio = document.getElementById('background-audio');
+            audio.play().catch(function(error) {
+                console.log('Autoplay was prevented:', error);
+                document.body.addEventListener('click', function() {
+                    audio.play();
+                }, { once: true });
+            });
+        });
+    </script>
+</body>
+</html>
